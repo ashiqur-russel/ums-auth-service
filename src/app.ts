@@ -1,9 +1,14 @@
-const express = require("express");
-const app = express();
-const port = 3000;
+import express, { Application, Request, Response } from 'express';
+import cors from 'cors';
 
-app.get('/',(req:any,res:any)=>{
-    res.send("Hello")
+const app: Application = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+
+app.get('/',(req: Request,res: Response)=>{
+    res.send("API Running Successfully !")
 })
 
 export default app;
